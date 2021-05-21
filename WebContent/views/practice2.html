@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	inputp[type=number]{width: 80px;'}
+</style>
+</head>
+<body>
+	<h1>Practice2</h1>
+	<input type="number" id="num1">
+	<select>
+		<option>+</option>
+		<option>-</option>
+		<option>*</option>
+		<option>/</option>
+		<option>%</option>
+	</select>
+	<input type="number" id="num2">
+	<button onclick="calc();">=</button>
+	<input type="text" id="result" readonly>
+	<script>
+			function calc(){
+				var result = document.getElementById("result");
+				var num1 = Number(document.getElementById("num1").value);
+				var num2 = Number(document.getElementById("num2").value);
+				var options = document.getElementsByTagName("option");
+				var op;
+				for(var i in options){
+					if(options[i].selected){
+						op = options[i].value;
+						break;
+					}
+				}
+				
+				var calc;
+				switch(op){
+				case '+':
+					calc = num1 + num2;
+					break;
+				case '-':
+					calc = num1 - num2;
+					break;
+				case '*':
+					calc = num1 * num2;
+					break;
+				case '/':
+					calc = num1 / num2;
+					break;
+				case '%':
+					calc = num1 % num2;
+					
+				}
+				
+				if(calc == 'Infinity' || calc == '-Infinity' || isNaN(calc)){
+					result.style.backgroundColor = 'red';
+					result.style.color = 'white';
+					result.value = '연산불가';
+				}else{
+					result.style.backgroundColor = 'white';
+					result.style.color = 'black';
+					result.value = calc;
+				}
+				
+				result.value= calc;
+			}
+	</script>
+</body>
+</html>

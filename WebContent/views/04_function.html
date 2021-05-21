@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>함수</h1>
+	<h2>함수 선언</h2>
+	<h3>선언적 함수</h3>
+	<p>function키워드에 함수 명을 작성하여 사용하는 방법</p>
+	<button onclick="test1">실행확인</button>
+	<script>
+			function test1(){
+				alert('선언적 방법');
+			}
+	</script>
+	
+	
+	
+	<h3>익명 함수</h3>
+	<p>함수 명 작성하지 않고 변수에 대입하는 방법</p>
+	<button onclick="test2();">실행확인</button>
+	<script>
+		var test2 = function(){
+			alert('익명 함수 실행');
+		}
+		
+		//test2();
+	</script>
+	
+	<h3>스스로 실행하는 함수</h3>
+	<p>호출이 따로 필요 없음</p>
+	<script>
+		(function(){
+			alert('혼자 자동으로 실행');
+		})();
+	</script>
+	
+	<h2>함수 전달 인자와 매개변수</h2>
+	<h3>매개인자로 전달하기</h3>
+	<button id="btn1">실행확인</button>
+	<script>
+		document.getElementById('btn1').onclick=function(){
+		//	console.log('연결');
+		//	 test4('안녕')
+		
+			// 지정된 매개변수보다 많은 개수를 호출하는 것을 허용, 단 초과된 매개변수 무시
+			test4('반가워', '조심해');
+		
+			//지정된 매개변수보다 적은 개수를 호출하는 것도 허용
+			// 전달 안된 매개변수는 undefined로 자동 설정
+			test4();
+		}
+		
+		function test4(value){
+			console.log(value);
+		}
+	</script>
+	
+	<h3>매개인자로 스스로를 전달하기</h3>
+	<p>this를 통해서 전달이 가능, this는 element요소로 사용</p>
+	<button onclick="test5(this);">JavaScript</button>
+	<button onclick="test5(this);">JQuery</button>
+	<script>
+	function test5(value){
+		console.log(value);
+		var sub = value.innerText;
+		alert('오늘 배울 내용은' + sub + "입니다");
+	}
+	
+	</script>
+	
+	<h3>함수 리턴처리</h3>
+	<button onclick="test6();">실행확인</button>
+	<script>
+		function test6(){
+		var value = returnFunction();
+		console.log(value);
+		
+		}
+		
+		function returnFunction(){
+			return prompt('가장 좋아하는 색깔은?');
+		}
+		
+		</script>
+		
+		<h3>가변인자 함수</h3>
+		<button onclick="test7();">실행확인</button>
+		<script>
+			function test7(){
+				var result = sum(1,2,3,4,5); //매개변수를 전달하는 값들
+				console.log(result);
+			}
+			
+			function sum(){
+				console.log(arguments);
+				var sum = 0;
+				for(var i = 0; i < arguments.length; i++){
+					sum += arguments[i];
+				} 
+				return sum;
+			}
+		</script>
+		
+		<h2>내장함수</h2>
+		<h3>eval()</h3>
+		<p>문자열을 자바스크립트 코드로 변환해 실행</p>
+		계산식 :<input typt="text" id="test1"><button onclick="test8();">실행확인</button><br>
+		<script>
+				function test8(){
+					console.log(document.getElementById('test1').value);
+					console.log(eval(document.getElementById('test1').value));
+				}
+		</script>
+		
+		<h3>infinity와 NaN</h3>
+		<button onclick="test9();">실행확인</button>
+		 <script>
+		 	function test9(){
+		 		var num1 = 10/0;
+		 		var num2 = 10/'a';
+		 		var num3 = -10/0;
+		 		
+		 		console.log(num1);
+		 		console.log(num2);
+		 		
+		 		console.log(num1 == Infinity);
+		 		console.log(isNaN(num2));
+		 		console.log(num3 == Infinity);
+		 		
+		 		console.log(isFinite(num1));
+		 		console.log(isFinite(num3));
+		 		
+		 	}
+		 
+		 </script>
+</body>
+</html>

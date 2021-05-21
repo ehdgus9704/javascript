@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.aa{width: 300px; height: 100px; border: 1px solid black; overflow: scroll;}
+</style>
+</head>
+<body>
+<form>
+<fieldset>
+<legend>취미</legend>
+	<input type='checkbox' name='hobby' value='전체선택' onclick='selectAll(this)'/> <label>전체선택</label>
+	<input type='checkbox' name='hobby'  value='종합' onclick='checkSelectAll(this)'><label>종합</label> 
+	<input type='checkbox'  name='hobby' value='소설' onclick='checkSelectAll(this)' > <label>소설</label> 
+	<input type='checkbox'  name='hobby' value='시/에세이'onclick='checkSelectAll(this)'><label>시/에세이</label>  
+	 <input type='checkbox'  name='hobby' value='경제/경영' onclick='checkSelectAll(this)'><label>경제/경영</label>  
+ 	<input type='checkbox'  name='hobby' value='자기게발' onclick='checkSelectAll(this)'> <label>자기계발</label>    
+	<input type='checkbox' name='hobby' value='아동' onclick='checkSelectAll(this)'><label>아동</label>  <br>
+    <input type='checkbox' name='hobby'  value='여행' onclick='checkSelectAll(this)'><label>여행</label>  
+    <input type='checkbox' name='hobby'  value='과학' onclick='checkSelectAll(this)'><label>과학</label> 
+    <input type='checkbox' name='hobby'  value='역사/문화' onclick='checkSelectAll(this)'><label>역사/문화</label> 
+     <input type='checkbox' name='hobby'  value='외국어' onclick='checkSelectAll(this)'><label>외국어</label> 
+     <input type='checkbox' name='hobby'  value='컴퓨터' onclick='checkSelectAll(this)'><label>컴퓨터</label> 
+      <input type='checkbox' name='hobby'  value='만화' onclick='checkSelectAll(this)'><label>만화</label> 
+       
+       
+       
+       
+       </fieldset>
+       </form>
+       <br>
+       <div id="a" class="aa"></div>
+       <button onclick="accessName();">카테고리 선택</button>
+       <script>
+       function checkSelectAll(checkbox)  {
+    	   const selectall 
+    	     = document.querySelector('input[name="selectall"]');
+    	   
+    	   if(checkbox.checked == false)  {
+    	     selectall.checked = true;
+    	   }
+    	 }
+
+    	 function selectAll(selectAll)  {
+    	   const checkboxes 
+    	      = document.getElementsByName('hobby');
+    	   
+    	   checkboxes.forEach((checkbox) => {
+    	     checkbox.checked = selectAll.checked
+    	   })
+    	 }
+    	
+    	 
+
+ 		function accessName(){
+ 			var hobby = document.getElementsByName('hobby');
+ 			console.log(hobby);
+ 			
+ 			
+ 			var checkItem = "";
+ 			for(var i = 0; i < hobby.length; i++){
+ 				if(hobby[i].checked){
+ 					checkItem += hobby[i].value + '';
+ 				}
+ 				
+ 			}
+ 			
+ 			document.getElementById('a').innerHTML = checkItem;
+ 		}
+ 	
+    	 </script>
+</body>
+</html>

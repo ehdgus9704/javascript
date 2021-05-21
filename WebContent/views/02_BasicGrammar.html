@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>기본 문법</h1>
+	<h2>변수와 자료형</h2>
+	<h3>변수 선언</h3>
+	<p>
+		함수 내부에서 'var 변수명;'으로 선언하면 지역변수가 됨<br>
+		함수 내부에서 '변수명;'으로 선언하거나 함수 밖에서 '변수명;' 혹은 'var 변수명;'으로 선언하면 전역변수가 됨<br>
+		전역변수와 지역변수가 동일한 이름인 경우 함수 내부에서 변수 명을 호출하면 지역 변수가 우선권을 가짐<br>
+		전역 변수 사용시 'window.변수명;' 혹은 'this.변수명;'으로 표현하며 지역변수와 구분<br>
+		전역변수는 해당 window내에서 어디든 사용할 수 있으며. 지역 변수는 해당 함수 내에서만 사용 가능
+	</p>
+	<script>
+		str1 = "전역변수";
+		var str2 = "var전역변수";
+		
+		window.onload = function(){
+			// window.onload()
+			// 자바스크립트에서 페이지가 로드되면 자동으로 실행되는 함수를 구현 할 때 사용
+			// 한 페이지에 하나의 window.onload()만 사용
+			// 이를 해결하기 위해 jQuery에서 $(document).ready()함수 제공
+			
+			var str1 = "지역변수1";
+			var str3 = "지역변수2";
+			
+			console.log('str1 : ' + str1);
+			console.log('this.str1 : ' + this.str1);
+			console.log('window.str1 : ' + window.str1);
+			
+			console.log('str2 : ' + str2);
+			console.log('this.str2 : ' + this.str2);
+			console.log('window.str2 : ' + window.str2);
+			
+			console.log('str3 : ' + str3);
+			console.log('this.str3 : ' + this.str3);
+			console.log('window.str3 : ' + window.str3);
+			
+			what = '난 뭘까?'
+			showWhat();
+			
+	//함수 안에 쓰였지만 var를 사용하지 않은 채 선언했기 때문에 전역변수
+
+		}
+		
+		function showWhat(){
+			console.log(what);
+			console.log(this.what);
+			console.log(window.what);
+			
+		}
+	</script>
+	
+	<h3>자료형</h3>
+	<p>자바스크립트에서는 자료형 별로 변수 타입이 정해지지 않고 리터럴에 의해 자료형 결정</p>
+	<button onclick="typeTest();">자료형 테스트</button>
+	<script>
+			function typeTest(){
+				var name = '김동현';
+				var age = 25;
+				var check = true;
+				var hobby = ['축구','농구','배구'];
+				var user = {
+					name :'김동현',
+					age : 25,
+					id : 'rose'	
+				};
+				var fn = function(num1, num2){
+					var sum = num1 + num2;
+					alert(sum);
+				};
+				
+				console.log(name);
+				console.log(age);
+				console.log(check);
+				console.log(hobby);
+				console.log(user);
+				console.log(fn);
+				
+				
+				
+				console.log(typeof(name));
+				console.log(name);
+				console.log(typeof(age));
+				console.log(age);
+				console.log(typeof check);
+				console.log(check);
+				console.log(typeof hobby);
+				console.log(hobby);
+				console.log(typeof user);
+				console.log(user);
+				console.log(typeof fn);
+				console.log(fn);
+				
+				// typeof() : 변수의 자료형을 확인할 때 사용하는 자료형 
+				
+				var temp;
+				console.log(temp);
+				console.log(typeof temp);
+				
+				
+			}
+	</script>
+	
+	<h2>데이터 형변환</h2>
+	<h3>문자열과 숫자의 +연산</h3>
+	<button onclick="testPlus();">문자열과 숫자의 +연산</button>
+	<script>
+	var test1 = 7 + 7;
+	console.log(test1);
+	
+	var test2 = 7 + '7';
+	console.log(test2);
+	
+	var test3 = '7' + '7';
+	console.log(test3);
+	
+	var test4 = '7' + 7;
+	console.log(test4);
+	
+	var test5 = 7 + 7 + '7';
+	console.log(test5);
+	
+	var test6 = 7 + '7' + 7;
+	console.log(test6);
+	
+	var test7 = '7' + 7 + 7;	// 문자열 + 뒤에 값은 다 문자열
+	console.log(test7);
+	
+	var test8 = '7' + (7 + 7);
+	console.log(test8);
+</script>
+
+<h3>강제 형변환</h3>
+<button onclick="castingTest()";>casting테스트</button>
+<script>
+	function castingTest(){
+		var num1 = 1;
+		var num2 = '3';
+		
+		console.log(num1 + num2);
+		console.log(num1 + parseInt(num2));
+		console.log(num1 + parseFloat(num2));
+		console.log(num1 + Number(num2));
+	}
+</script>
+
+<h2>연산자</h2>
+<h3>자바와 다른 연산자</h3>
+<h4>=== 연산자와 !==연산자</h4>
+<p>값과 자료형 둘 다 일치하는지, 일치하지 않는지 확인할 때 사용</p>
+<button onclick="opTest();">확인하기</button>
+<script>	
+		function opTest(){
+			var check1 = 1;
+			var check2 = '1';
+			
+			console.log('check1 == 1 : ' + (check1 ==1))
+			console.log('check2 == "1" : ' + (check2 == '1'));
+			console.log('check1 == "1" : ' + (check1 == '1'));
+			console.log('check2 == "1" : ' + (check2 == 1));	
+			
+			console.log('check1 === 1 : ' + (check1 ===1))
+			console.log('check2 === "1" : ' + (check2 === '1'));
+			console.log('check1 === "1" : ' + (check1 === '1'));
+			console.log('check2 === "1" : ' + (check2 === 1));	
+		}
+</script>
+
+	<h2>조건문과 반복문</h2>
+	<h3>조건문</h3>
+	<h4>if</h4>
+	<button onclick = "ifTest();">if버튼</button>
+	<script>
+		function ifTest(){
+			//당신의 성별은 무엇입니까 라고 물어보고 사용자에게 성별을 받아오기
+			//사용자가 입력한 성별이 '남자'이면 'XY입니다' 알림창 출력
+			//사용자가 입력한 성별이 '여자'이면  'XX입니다' 알림창 출력
+			//사용자가 입력한 성별이 남자도 여자도 아니면 '잘못 입력하셨습니다.' 알림창 출력
+			var gender = prompt('당신의 성별은 무엇입니까?', '남자/여자');
+			if(gender == '남자'){
+				alert('XY입니다.');
+			}else if(gender == '여자'){
+				alert('XX입니다.');	
+			}else{
+				alert('잘못 입력하셨습니다.')
+			}
+			
+		}
+	</script>
+	
+	<h4>switch</h4>
+	<button onclick="switchTest();">switch버튼</button>
+	<script>
+			function switchTest(){
+				// 현재 몇 월입니까? 라는 질문을 사용자에게 하고 사용자는 해당하는 달 숫자를 입력
+				// 각 달에 마지막 날을 출력
+				// month월은  day일까지입니다.
+				var month = Number(prompt("현재 몇 월입니까?"));
+				var day;
+				switch(month){
+				case 1: case 3: case 5: case 7:
+				case 8: case 10: case 12:
+					day = 31;
+					break;
+				case 4: case 6: case 9: case 11:
+					day = 30;
+					break;
+				default:
+					day = 28;
+				
+				}
+				alert(month + '월은' + day + '일까지입니다.');
+			}
+	</script>
+	<h3>반복문</h3>
+	<h4>for</h4>
+	<button onclick = "forTest();">for</button>
+	<script>	
+		function forTest(){
+			var result = "";
+			for(var i = 1; i <= 10; i++){
+				result += i + " ";
+			}
+			alert('for : ' + result);
+		}
+			
+		
+	</script>
+	<h4>while</h4>
+	
+	<button onclick = "whileTest();">while</button>
+		<script>
+		function whileTest(){
+			var result ="";
+			var i = 1;
+			while (i <= 10) {
+				result += i+ " ";
+			 	i++
+			}
+			alert('while : ' + result);
+		}
+	</script>
+	
+	<h4>do-while</h4>
+	<button onclick = "doWhileTest();">doWhile</button>
+	<script>	
+		function doWhileTest(){
+			var result ="";
+			var i = 1;
+			do {
+			 result += i + " ";
+			 i++
+			} while (i <= 10)
+				alert('do-while : ' + result);
+		}
+	</script>
+	
+	<h4>for in</h4>
+	<button onclick = "forinTest();"> for in</button>
+	<script>
+		function forinTest(){
+			var result = "";
+			var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+			// for in : 반복 배열의 index를 리턴하여 i에 담아 둠
+			// 			반복 객체의 키를 리턴하여 i에 담아둠
+			for(var i in array){
+				//result += i + " ";
+				result += array[i] + " ";
+				
+			}
+			/*
+			 	int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+				for(int e : array){
+					
+				}
+			*/
+			
+			alert(result);
+		}
+	</script>
+</body>
+</html>

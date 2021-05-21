@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>BOM</h1>
+	<h2>navigator객체</h2>
+	<p>웹 페이지를 실행하고 있는 브라우저에 대한 정보를 갖고 있는 객체</p>
+	<button onclick="test1();">실행확인</button>
+	<script>
+		function test1(){
+			for(var key in navigator){
+				console.log(key + ":" + navigator[key]);
+				
+			}
+		}
+	</script>
+	
+	<h2>screen객체</h2>
+	<p>웹 브라우저 화면이 아닌 운영체제 화면(모니터)의 속성을 가지는 객체</p>
+	<button onclick="test2();">실행확인</button>
+	<script>
+			function test2(){
+				for(var key in screen){
+					console.log(key+ ":" + screen[key]);
+					
+				}
+			}
+	</script>
+	
+	<h2>location객체</h2>
+		<p>브라우저 주소 표시줄과 관련된 객체</p>
+		<button onclick="test3();">실행확인</button>
+		<script>
+				function test3(){
+					for(var key in location){
+						console.log(key+ ":"+location[key]);
+					}
+				}
+		</script>
+		
+	<h3>location.href</h3>
+	<p>페이지 이동</p>
+	<button onclick="location.href='http://www.naver.com'">네이버로 이동</button>
+	<button onclick="location='http://www.naver.com'">네이버로 이동</button>
+	
+	<h3>reload</h3>
+	<p>페이지를 새로고침하는 메소드</p>
+	<button onclick="location=location">새로고침</button>
+	<button onclick="location.href=location.href">새로고침</button>
+	<button onclick="location.reload()">새로고침</button>
+	
+	<h3>assign()과 replace</h3>
+	<p>
+		두 메소드 모두 제공한 url로 재지정하는 메소드(페이지로 이동)
+	</p>
+	<button onclick="location.assign('http://www.google.com')">구글로 이동</button>
+	<button onclick="location.replace('http://www.google.com')">구글로 이동</button>
+	
+	<h2>history객체</h2>
+	<p>브라우저 방문 기록과 관련된 객체</p>
+	<button onclick="history.back()">back</button>
+	<button onclick="history.forward()">forward</button>
+	
+	<br><br>
+	
+	<input type="number" id="num" style="width: 50px;"><button onclick="test4()">go()</button>
+	<script>
+		function test4(){
+			var num = document.getElementById('num').value;
+			history.go(num);
+		}
+	</script>
+	<button onclick="history.go(-1);">go back</button>
+	<button onclick="history.go(1);">go forward</button>
+	<!--  go()로 back()나 forward() 구현가능 -->
+	
+	
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

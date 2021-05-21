@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	//for문을 사용한 구구단을 웹브라우저 콘솔창에 출력해보기
+	
+	//for문 시작 2단부터 9단까지
+	for(var i=2; i<=9; i++){
+		//이중 for문을 사용하여 2*1=2, 2*2=4 ..... 9*9=81
+		for(var j=1; j<=9; j++){
+			//곱한값을 담을 변수 temp
+			var temp = i*j;
+			//출력
+			console.log(i + '*' + j + '=' + temp);
+		}
+	}
+</script>
+</body>
+</html>

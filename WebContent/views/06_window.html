@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>whidow객체</h1>
+<p>
+		window객체는 자바스크립트의 최상위 객체이며 브라우저 창에 대한 설정을 함 <br>
+		BOM과 DOM으로 나뉨<br>
+		BOM(Browser Object Model): location객체, navigator객체, history객체, screen객체<br>
+		DOM(Document Object Model): document객체
+</p>
+
+<h2>open()메소드</h2>
+<button onclick="test1();">실행1</button>
+<button onclick="test2();">실행2</button>
+<script>
+		function test1(){
+	//		window.open();// 탭 열림
+		// window.open(URL, name, specs, replace)	
+		//           주소       이름      옵션       저장방식
+		window.open('http://www.naver.com','네이버','width=500, height=300');
+		}
+		
+		function test2(){
+			var popup = window.open('','_self');
+			popup.document.write('<html><body><h2>까꿍!</h2></body></html>');
+		}
+</script>
+
+	<h4>timer() 메소드</h4>
+	<h3>setTimeout()</h3>
+	<button onclick="test3();">실행확인</button>
+	<script>
+		function test3(){
+			//myWindow라는 변수에 새 창을 띄우는 함수 담기
+			// 새 창을 띄우는 함수는 너비500, 높이 300의 옵션을 담고 있음
+			var myWindow = window.open('','','width=500,height=300');
+			
+			//mywindow에 alert이용하여 '3초 후에 이 페이지는 종료됩니다' 알람창 띄우기
+			myWindow.alert('3초 후에 이 페이지는 종료 됩니다');
+			
+			window.setTimeout(function(){
+				myWindow.close();
+			}, 3000);
+		}
+	</script>
+	<h3>setInterval()</h3>
+	<button onclick="test4();">실행확인</button>
+	<div id="area4" style="border: 1px solid red; height:150px;"></div>
+	<script>
+		function test4(){
+			var area = document.getElementById('area4');
+			
+			window.setInterval(function(){
+			var date = new Date();
+			//console.log(date.getHours());
+		//	console.log(date.getMinutes());
+		//	console.log(date.getSeconds());	
+				area.innerHTML = date.getHours() + ":"
+							   + date.getMinutes() + ":" + date.getSeconds();
+			}, 1000);
+		}
+	</script>
+	
+	<h4></h4>
+	<button onclick="test5();">실행확인</button>
+	<div id="area5" style="border:1px solid blue; height:50px"></div>
+	<script>
+		function test5(){
+			var area = document.getElementById('area5');
+			
+			var count = 3;
+			window.setInterval(function(){
+				area.innerHTML = 'countdown :' + count--;
+				if(count < 0){
+					area.innerHTML += '종료!';	
+					clearInterval(interval);
+				}
+			}, 1000);
+			
+			
+		}
+	</script>
+</body>
+</html>

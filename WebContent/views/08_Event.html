@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>이벤트</h1>
+	<h2>이벤트 설정 방법</h2>
+	<h3>고전 이벤트 모델</h3>
+	<button id="test1">test1</button>
+	<button id="test2">test2</button>
+	<script>
+		var test1 = document.getElementById('test1');
+		//document.getElementById('test1').onclick = function(){
+			//alert('test1이 눌렸습니다.');
+	//	};
+		test1.onclick = function(){
+				alert('test1이 눌렸습니다.');
+		};
+			
+		
+		document.getElementById('test2').onclick = function(){
+				alert('test1의 이벤트를 삭제 했습니다.');
+				test1.onclick = null;
+			};
+		
+	</script>
+	
+	<h4>이벤트 발생 겍체</h4>
+	<button id = "test3">test3</button>
+	
+	<script>
+		//버튼을 누를 때마다 버튼의 배경색이 검은색(글자:하양), 원래 색(글자:검정)으로 돌아오게 만들기
+		var test3 = document.getElementById('test3');
+		var check = false;
+		test3.onclick=function(){
+			if(!check){
+				this.style.backgroundColor='black';
+				this.style.color = 'white';
+				check = true;
+			}else{
+				this.style.backgroundColor= null;
+				this.style.color = null;
+				check = false;
+			}
+		}
+
+
+	</script>
+	
+	<h3>인라인 모델</h3>
+	<button onclick="test4();">test4</button>
+	<button onclick="alert('test5클릭');">test5</button>
+	<script>
+		function test4(){
+			alert('test4클릭');
+		}
+	</script>
+	
+	<h3>표준 이벤트 모델</h3>
+	<button id="test5">test5</button>
+	<button id="test6">test6</button>
+	<div id="area" style="border: 1px solid black; min-height: 150px;"></div>
+	<script>
+		var area = document.getElementById('area');
+		var test5 = document.getElementById('test5');
+		var test6 = document.getElementById('test6');
+		
+	//	test5.addEventListener('click',function(){
+		//	area.innerHTML += 'test5클릭<br>';
+		//});
+		test5.addEventListener('click', fn_test5);
+		
+		function fn_test5(){
+			area.innerHTML += 'test5클릭<br>';
+		}
+		
+		function fn_test6(){
+			area.innerHTML += 'test6클릭<br>';
+			test5.removeEventListener('click',fn_test5);
+		}
+		
+		test6.addEventListener('click', fn_test6);
+	</script>
+	
+	<h2>기본 이벤트 제거1</h2>
+	<form>
+		이름 : <input type="text" name="name" id="name"><br>
+		아이디 : <input type="text" name="userId" id="userId"><br>
+		비밀번호 : <input type="password" name="password" id="password"><br>
+		비밀번호확인:<input type="password" name="passwordConfirm" id="passwordConfirm"><br>
+		<input type="submit" value="제출" onclick="return test7();">
+	</form>
+		<script>
+			function test7(){
+				var name = document.getElementById('name').value;
+				var userId = document.getElementById('userId').value;
+				var passWord = document.getElementById('password').value;
+				var passwordConfirm = document.getElementById('passwordConfirm').value;
+				
+				if(password != passwordConfirm){
+					alert('비밀번호가 일치하지 않습니다.');
+					return false;
+				}else{
+					alert('비밀번호가 일치합니다.');
+					return true;
+				}
+			}
+		</script>
+		
+		<h2>기본 이벤트 제거2</h2>
+		<form onsubmit="return test8();">
+		이름 : <input type="text" name="name2" id="name2"><br>
+		아이디 : <input type="text" name="userId2" id="userId2"><br>
+		비밀번호 : <input type="password" name="password2" id="password2"><br>
+		비밀번호확인:<input type="password" name="passwordConfirm2" id="passwordConfirm2"><br>
+		<input type="submit" value="제출" >
+	</form>
+	
+	
+		<script>
+			function test8(){
+				var name = document.getElementById('name2').value;
+				var userId = document.getElementById('userId2').value;
+				var passWord = document.getElementById('password2').value;
+				var passwordConfirm = document.getElementById('passwordConfirm2').value;
+				
+				if(password != passwordConfirm){
+					alert('비밀번호가 일치하지 않습니다.');
+					return false;
+				}else{
+					alert('비밀번호가 일치합니다.');
+					return true;
+				}
+			}
+		</script>
+</body>
+</html>
